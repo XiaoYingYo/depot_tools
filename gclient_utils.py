@@ -642,7 +642,6 @@ def CheckCallAndFilter(args, print_stdout=False, filter_fn=None,
     # 打印创建进程的所有参数
     argsStr = ' '.join(args)
     print(argsStr)
-    return
     kid = subprocess2.Popen(args, bufsize=0, stdout=pipe_writer, stderr=subprocess2.STDOUT,**kwargs)
     if argsStr.find('core.deltaBaseCacheLimit=') != -1:
       while True:
