@@ -643,19 +643,6 @@ def CheckCallAndFilter(args, print_stdout=False, filter_fn=None,
     argsStr = ' '.join(args)
     print(argsStr)
     kid = subprocess2.Popen(args, bufsize=0, stdout=pipe_writer, stderr=subprocess2.STDOUT,**kwargs)
-    if argsStr.find('core.deltaBaseCacheLimit=') != -1:
-      while True:
-        if kid.poll() != None:
-          break
-        stdout = kid.stdout
-        if stdout == None:
-          time.sleep(0.1)
-          continue
-        line = kid.stdout.readline()
-        if line:
-          print(line.strip())
-        else:
-          break
 
     # Close the write end of the pipe once we hand it off to the child proc.
     os.close(pipe_writer)
