@@ -662,6 +662,7 @@ class Dependency(gclient_utils.WorkItem, DependencySettings):
         if (dep_name not in processed_deps and dep_info and not dep_info.endswith('@unmanaged')):
           processed_deps[dep_name] = {'url': dep_info, 'dep_type': 'git'}
 
+
     # Make child deps conditional on any parent conditions. This ensures that,
     # when flattened, recursed entries have the correct restrictions, even if
     # not explicitly set in the recursed DEPS file. For instance, if
