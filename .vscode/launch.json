@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "gclient sync",
+            "type": "python",
+            "request": "launch",
+            "program": "K:\\@\\depot_tools\\gclient.py",
+            "args": [
+                "sync",
+            ],
+            "cwd": "K:\\Chromium",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        }
+    ]
+}
