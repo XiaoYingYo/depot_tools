@@ -1458,6 +1458,7 @@ class GitWrapper(SCMWrapper):
     if refspec:
       fetch_cmd.append(refspec)
 
+    fetch_cmd.append('--progress')
     if prune:
       fetch_cmd.append('--prune')
     if options.verbose:
@@ -1468,6 +1469,9 @@ class GitWrapper(SCMWrapper):
       fetch_cmd.append('--quiet')
     if depth:
       fetch_cmd.append('--depth=' + str(depth))
+    # fetch_cmd_Str = ""
+    # for i in fetch_cmd:
+    #   fetch_cmd_Str += i + " "
     self._Run(fetch_cmd, options, show_header=options.verbose, retry=True)
 
   def _SetFetchConfig(self, options):
