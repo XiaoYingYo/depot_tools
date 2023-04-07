@@ -1264,7 +1264,7 @@ def DefaultDeltaBaseCacheLimit():
   parameter is set too high.
   """
   if platform.architecture()[0].startswith('64'):
-    return '16g'
+    return '3g'
 
   return '512m'
 
