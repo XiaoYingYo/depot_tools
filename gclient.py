@@ -658,9 +658,13 @@ class Dependency(gclient_utils.WorkItem, DependencySettings):
         # overrides (via revision_overrides). Having them function as revision
         # overrides allows them to be applied to recursive dependencies.
         # https://crbug.com/1031185
-        if (dep_name not in processed_deps and dep_info
-            and not dep_info.endswith('@unmanaged')):
-          processed_deps[dep_name] = {'url': dep_info, 'dep_type': 'git'}
+
+        # try
+        try:
+          if (dep_name not in processed_deps and dep_info and not dep_info.endswith('@unmanaged')):
+            processed_deps[dep_name] = {'url': dep_info, 'dep_type': 'git'}
+        except:
+          pass
 
     # Make child deps conditional on any parent conditions. This ensures that,
     # when flattened, recursed entries have the correct restrictions, even if
